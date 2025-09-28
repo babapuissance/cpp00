@@ -423,19 +423,6 @@ CPP-Module-00/
 
 ---
 
-<div align="center">
-
-## 🤝 Contribution
-
-Ce projet fait partie du cursus **42 School**. Pour toute question ou amélioration :
-
-[![GitHub](https://img.shields.io/badge/GitHub-nassimfx-181717.svg?style=for-the-badge&logo=github)](https://github.com/nassimfx)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue.svg?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/nassimfx)
-
 ---
 
 *Développé avec ❤️ dans le cadre du cursus 42 School - Module 00 C++*
-
-**⭐ N'hésitez pas à laisser une étoile si ce projet vous a aidé !**
-
-</div>
