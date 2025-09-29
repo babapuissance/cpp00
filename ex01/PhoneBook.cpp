@@ -1,5 +1,7 @@
 #include "PhoneBook.hpp"
 #include <iomanip>
+#include <sstream>
+#include <cstdlib>
 
 // ANSI color codes
 #define RESET   "\033[0m"
@@ -71,7 +73,9 @@ void	PhoneBook::searchContact(void) const {
 
 	displayContacts();
 
-	std::string	input = _getInput(CYAN "🔍 Enter index (0-" + std::to_string(_count - 1) + "): " RESET);
+	std::stringstream	ss;
+	ss << (_count - 1);
+	std::string	input = _getInput(CYAN "🔍 Enter index (0-" + ss.str() + "): " RESET);
 	if (input.empty()) {
 		std::cout << RED << "❌ Invalid index." << RESET << std::endl;
 		std::cout << std::endl;
@@ -131,7 +135,7 @@ std::string	PhoneBook::_getInput(const std::string& prompt) const {
 	std::cout << prompt;
 	if (!std::getline(std::cin, input)) {
 		std::cout << "\nExiting.\n";
-		std::exit(0);
+		exit(0);
 	}
 	
 	// Remove leading and trailing whitespace
