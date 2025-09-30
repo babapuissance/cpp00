@@ -20,6 +20,7 @@ private:
 	int		_next;
 
 	std::string	_getInput(const std::string& prompt) const;
+	std::string	_getValidInput(const std::string& prompt) const;
 	void		_formatField(const std::string& field) const;
 };
 

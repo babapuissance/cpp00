@@ -25,30 +25,11 @@ PhoneBook::~PhoneBook(void) {
 void	PhoneBook::addContact(void) {
 	std::string	firstName, lastName, nickname, phoneNumber, darkestSecret;
 
-	firstName = _getInput(YELLOW "👤 Enter first name: " RESET);
-	while (firstName.empty()) {
-		firstName = _getInput(YELLOW "👤 Enter first name: " RESET);
-	}
-
-	lastName = _getInput(YELLOW "👤 Enter last name: " RESET);
-	while (lastName.empty()) {
-		lastName = _getInput(YELLOW "👤 Enter last name: " RESET);
-	}
-
-	nickname = _getInput(YELLOW "🏷️  Enter nickname: " RESET);
-	while (nickname.empty()) {
-		nickname = _getInput(YELLOW "🏷️  Enter nickname: " RESET);
-	}
-
-	phoneNumber = _getInput(YELLOW "📞 Enter phone number: " RESET);
-	while (phoneNumber.empty()) {
-		phoneNumber = _getInput(YELLOW "📞 Enter phone number: " RESET);
-	}
-
-	darkestSecret = _getInput(YELLOW "🤫 Enter darkest secret: " RESET);
-	while (darkestSecret.empty()) {
-		darkestSecret = _getInput(YELLOW "🤫 Enter darkest secret: " RESET);
-	}
+	firstName = _getValidInput(YELLOW "👤 Enter first name: " RESET);
+	lastName = _getValidInput(YELLOW "👤 Enter last name: " RESET);
+	nickname = _getValidInput(YELLOW "🏷️  Enter nickname: " RESET);
+	phoneNumber = _getValidInput(YELLOW "📞 Enter phone number: " RESET);
+	darkestSecret = _getValidInput(YELLOW "🤫 Enter darkest secret: " RESET);
 
 	_contacts[_next].setFirstName(firstName);
 	_contacts[_next].setLastName(lastName);
@@ -129,7 +110,8 @@ void	PhoneBook::displayContacts(void) const {
 	std::cout << "└──────────┴──────────┴──────────┴──────────┘" << std::endl;
 }
 
-std::string	PhoneBook::_getInput(const std::string& prompt) const {
+std::string	PhoneBook::_getInput(const std::string& prompt) const 
+{
 	std::string	input;
 	
 	std::cout << prompt;
@@ -145,6 +127,17 @@ std::string	PhoneBook::_getInput(const std::string& prompt) const {
 	}
 	size_t	end = input.find_last_not_of(" \t");
 	return input.substr(start, end - start + 1);
+}
+
+std::string	PhoneBook::_getValidInput(const std::string& prompt) const 
+{
+	std::string	input;
+	
+	do {
+		input = _getInput(prompt);
+	} while (input.empty());
+	
+	return input;
 }
 
 void	PhoneBook::_formatField(const std::string& field) const {
